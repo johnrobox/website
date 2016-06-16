@@ -53,9 +53,16 @@ $route['default_controller'] = 'welcome';
 
 $route['admin'] = 'admin/LoginController';
 $route['admin/admin-login-exec'] = 'admin/LoginController/login_exec';
+$route['admin/admin-logout'] = 'admin/LogoutController/logout';
+
+$route['admin/dashboard'] = 'admin/DashboardController/dashboard';
 
 $route['admin/admin-register-user'] = 'admin/AdminUserController/register';
 $route['admin/admin-register-user-exec'] = 'admin/AdminUserController/register_exec';
+$route['admin/admin-list-user'] = 'admin/AdminUserController/all';
+
+$route['admin/admin-update-account-exec'] = 'admin/AccountController/update_exec';
+$route['admin/admin-update-profile_exec'] = 'admin/AccountController/update_profile_exec';
 
 $route['menu1'] = 'admin/LoginController/menu';
 $route['menu2'] = 'admin/LoginController/new_menu';

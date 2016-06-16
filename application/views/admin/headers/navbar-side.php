@@ -1,6 +1,26 @@
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
+                    <div style="" class="row">
+                        <div class="col-xs-6" style="padding: 8px 8px 8px 35px">
+                            <?php
+                            if (!empty($account[0]->admin_image)) {
+                                $profile = 'users/'.$account[0]->admin_image;
+                            } else if ($account[0]->admin_gender == 1) {
+                                $profile = 'default/male.jpg';
+                            } else {
+                                $profile = 'default/female.jpg';
+                            }
+                            ?>
+                            <img src="<?php echo base_url().'images/admin/'.$profile;?>" style="height: 100px; width: 100px; border: 1px solid black" class="img-circle img-responsive changeProfile"/>
+                        </div>
+                        <div class="col-xs-4 text-center" style="padding: 35px 0px 0px 0px;">
+                            <?php echo ucwords(strtolower($account[0]->admin_firstname. ' '.$account[0]->admin_lastname));?>
+                            <br>
+                            <span class="fa fa-check-circle" style="color: green"></span>
+                            <small>Online</small>
+                        </div>
+                    </div>
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
@@ -14,8 +34,22 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="<?php echo base_url(); ?>admin/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
+                        
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Admin Users<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url();?>admin/admin-register-user">Register</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>admin/admin-list-user">View List</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

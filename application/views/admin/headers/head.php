@@ -11,6 +11,7 @@
         <link href="<?php echo base_url();?>css/admin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url();?>css/admin/sb-admin-2.css" rel="stylesheet" type="text/css">
         <link href="<?php echo base_url();?>css/common.css" rel="stylesheet" type="text/css">
+        <script src="<?php echo base_url();?>js/admin/jquery.min.js"></script>
     </head>
     <body>
         <div id="wrapper">

@@ -11,39 +11,19 @@
                     <?php echo form_open(base_url().'admin/admin-login-exec'); ?>
                     <div class="form-group">
                         <?php
-                        $login_email = array(
-                            'type' => 'email',
-                            'name' => 'email',
-                            'id' => 'email',
-                            'class' => 'form-control',
-                            'placeholder' => 'E-mail',
-                            'value' => set_value('email'),
-                            'autofocus' => ''
-                        );
+                        echo $this->session->flashdata('error');
                         echo form_error('email', '<div class="text-red text-center">', '</div>');
-                        echo form_input($login_email);
+                        echo form_input($form['email']);
                         ?>
                     </div>
                     <div class="form-group">
                         <?php
-                        $login_password = array(
-                            'type' => 'password',
-                            'name' => 'password',
-                            'id' => 'password',
-                            'class' => 'form-control',
-                            'placeholder' => 'Password'
-                        );
                         echo form_error('password', '<div class="text-red text-center">', '</div>');
-                        echo form_input($login_password);
+                        echo form_input($form['password']);
                         ?>
                     </div>
                     <?php
-                    $login_token = array(
-                        'type' => 'hidden',
-                        'name' => $this->security->get_csrf_token_name(),
-                        'value' => $this->security->get_csrf_hash()
-                    );
-                    echo form_input($login_token);
+                    echo form_input($form['token']);
                     ?>
                    
                     <div class="checkbox">

@@ -48,6 +48,21 @@ class Form {
     }
     
     /*
+     * Hidden - for hidden form
+     * @param : $name (String)
+     * @param : $value (String, int )
+     * @return : ($field (array)
+     */
+    public function hidden($name, $value) {
+        $attr = array(
+            'type' => 'hidden',
+            'name' => $name,
+            'value' => $value
+        );
+        return $attr;
+    }
+    
+    /*
      * default attr field
      * @param : $name (String)
      * @param : $placeholder (String)

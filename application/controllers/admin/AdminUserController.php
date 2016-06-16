@@ -8,12 +8,14 @@ class AdminUserController extends CI_Controller {
         $this->load->model('AdminUser');
         $this->load->model('AdminUserLog');
         $this->load->library('alert');
+        $this->acountInfo = $this->AdminUser->get_by_id($this->session->userdata('admin_logged_in')['ADMIN_LOGIN_ID']);
     }
     
     public function register() {
         $data = array(
             'page_title' => 'Admin - Register Admin User',
             'head_title' => 'Register Admin User',
+            'account' => $this->acountInfo,
             'fields' => array(
                 'firstname' => $this->form->text('admin_firstname', 'Firstname', false),
                 'lastname' => $this->form->text('admin_lastname', 'Lastname', false),
@@ -37,6 +39,8 @@ class AdminUserController extends CI_Controller {
         $this->load->view('admin/headers/navbar-top');
         $this->load->view('admin/headers/navbar-side');
         $this->load->view('admin/contents/admin-register-user');
+        $this->load->view('admin/modals/account-settings');
+        $this->load->view('admin/modals/logout');
         $this->load->view('admin/footers/footer-link');
         $this->load->view('admin/footers/foot');
     }
@@ -109,6 +113,23 @@ class AdminUserController extends CI_Controller {
             redirect(base_url().'admin/admin-register-user');
             exit();
         }
+    }
+    
+    
+    public function all() {
+        $data = array(
+            'page_title' => 'Admin - List of admin users',
+            'head_title' => 'List Admin User',
+            'account' => $this->acountInfo
+        );
+        $this->load->view('admin/headers/head', $data);
+        $this->load->view('admin/headers/navbar-top');
+        $this->load->view('admin/headers/navbar-side');
+        $this->load->view('admin/contents/admin-all-user');
+        $this->load->view('admin/modals/account-settings');
+        $this->load->view('admin/modals/logout');
+        $this->load->view('admin/footers/footer-link');
+        $this->load->view('admin/footers/foot');
     }
     
 }
